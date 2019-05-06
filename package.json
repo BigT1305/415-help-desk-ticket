@@ -1,0 +1,23 @@
+{
+  "name": "415-help-desk-ticket",
+  "version": "1.0.0",
+  "description": "415 Project of a Node.js web app service that provides basic CRUD operations to tickets stored in a database, represented as JSON (objects).",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Node.js",
+    "Express",
+    "MongoDB",
+    "Mongoose",
+    "Ticket"
+  ],
+  "author": "Tony Hoss",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.16.4",
+    "mongoose": "^5.5.6"
+  }
+}
