@@ -12,7 +12,7 @@ const TicketSchema = mongoose.Schema({
     recipient: String,
     assignee_id: Number,
     follower_ids: Number,
-    tags
+    tags: String
 }, {
     timestamps: true
 });
