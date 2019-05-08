@@ -1,20 +1,18 @@
-//Basically the controllers for the app
-module exports = (app) => {
-    const tickets = require('../controllers/note.controller.js');
+module.exports = (app) => {
+    const ticket = require('../controllers/ticket.controller.js');
 
-    //Retrieve all tickets
-    app.get('/rest/list', tickets.findAll);
+    //Endpoint to retrieve all tickets
+    app.get('/rest/list/', ticket.findAll);
 
-    //Get a single ticket by Id/ticketId
-    app.get('/rest/ticket/:ticketId', tickets.findOne);
+    //Endpoint to get a single ticket based on id
+    app.get('/rest/ticket/:ticketId', ticket.findOne);
 
-    //Create a new ticket
-    app.post('/rest/ticket/', tickets.create);
+    //Endpoint to create a new ticket based on id
+    app.post('/rest/ticket/', ticket.create);
 
-    //Delete a single ticket by ticketId
-    app.delete('/rest/ticket/:ticketId', tickets.delete);
+    //Endpoint to delete a single ticket
+    app.delete('/rest/ticket/:ticketId', ticket.delete);
 
-    //Update a ticket record based on ticketId
-    app.put('/rest/ticket/:ticketId', tickets.update);
-
+    //Endpoint to update an existing ticket
+    app.put('/rest/ticket/:ticketId', ticket.update);
 }
