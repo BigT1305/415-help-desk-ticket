@@ -6,9 +6,7 @@ var bodyParser = require('body-parser');
 var path = require('path');
 var logger = require('morgan');
 var app = express();
-
-//Create the express application
-//const app = express();
+//var Router = ticketRouter();
 
 //Parse requests content type - application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -33,12 +31,12 @@ mongoose.connect(dbConfig.url, {
 
 //Add routes to middleware
 app.get('/', (req, res) => {
-    res.json({"message": "Welcome to the help desk ticketing system.  You may see any tickets, delte, or update any that you see fit.  Project for Dr. Burris, CMPS 415 Spring 2019."});
+    res.json({"message": "Welcome to the help desk ticketing system.  You may see any tickets, delete, or update any that you see fit.  Project for Dr. Burris, CMPS 415 Spring 2019."});
 });
 //Import the ticket route
-var ticketRouter = require('./app/routes/ticket.routes.js', app);
+//app.use.Router = require('./app/routes/ticket.routes.js', Router);
 
-//Set up other stuff
+//Set up parser for JSON requests
 app.use(express.json());
 
 
