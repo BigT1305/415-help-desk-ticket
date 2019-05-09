@@ -3,10 +3,14 @@
 //Also used https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/Tutorial_local_library_website as a guide in setting up my project
 var express = require('express');
 var bodyParser = require('body-parser');
-var path = require('path');
-var logger = require('morgan');
 var app = express();
-//var Router = ticketRouter();
+var router = express.Router();
+
+//Converting a document to XML format from JSON format
+var fs = require('fs');
+var parser = require('xml2json');
+var reader = require('./app/translator/xml2json');
+var reader2 = require ('./app/translator/xml2json.toXml');
 
 //Parse requests content type - application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -34,11 +38,9 @@ app.get('/', (req, res) => {
     res.json({"message": "Welcome to the help desk ticketing system.  You may see any tickets, delete, or update any that you see fit.  Project for Dr. Burris, CMPS 415 Spring 2019."});
 });
 //Import the ticket route
-//app.use.Router = require('./app/routes/ticket.routes.js', Router);
-
-//Set up parser for JSON requests
-app.use(express.json());
-
+require('./app/models/ticket.model', Router);
+require('./app/routes/ticket.routes.js', Router);
+require('./app/controllers/ticket.controller', Router);
 
 //Listen for requests
 app.listen(3000, () => {
